@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,11 +26,11 @@ namespace u21529664_HW06.Controllers
             return View(orders);
         }
 
-        public ActionResult SearchOrders(DateTime date, int? page)
+        public ActionResult SearchOrders(DateTime date )
         {
 
             List<OrderVM> orders = db.order_items.Where(b => b.order4.order_date <= date).Select(k => new OrderVM { OrderID = k.order_id, CategoryName = k.product.category.category_name, Product = db.products.Where(p => p.product_id == k.product_id).FirstOrDefault(), Quantity = k.quantity, ListPrice = k.list_price, GrandTotal = (k.list_price * k.quantity), OrderDate = db.orders.Where(b => b.order_id == k.order_id).FirstOrDefault().order_date }).ToList();
-            return View("Orders", orders);
+            return View("Index", orders);
         }
     }
 }
