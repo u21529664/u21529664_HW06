@@ -1,0 +1,73 @@
+﻿@model List<u21529664_HW06.Models.OrderVM>
+@*@using PagedList;
+    @using PagedList.Mvc;*@
+
+<h2>Orders</h2>
+
+@using (Html.BeginForm("SearchOrders", "OrderVM", FormMethod.Post))
+{
+
+    <form>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <input type="date" name="date" class="form-control" style="width:175px" />
+            </div>
+            <div class="col-1">
+                <input type="submit" value="Search" class="form-control btn btn-primary" style="width:75px" />
+            </div>
+        </div>
+
+
+    </form>
+}
+
+
+
+@for (int k = 0; k < Model.Count(); k++)
+{
+    if (Model.Where(p => p.OrderID == k).Count() > 0)
+    {
+        <h2 style="color:blue">Order @Model.Where(p => p.OrderID == k).FirstOrDefault().OrderID -@Model.Where(p => p.OrderID == k).FirstOrDefault().OrderDate.Date.ToShortDateString() </h2>
+        <table class="table table-striped">
+            <thead>
+                <tr style="background-color:cornflowerblue">
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                        List Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Where(p => p.OrderID == k).ToList())
+                {
+                    <tr>
+                        <td>@product.OrderID @product.Product.product_name</td>
+                        <td>@product.ListPrice</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.GrandTotal</td>
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><b>Grand Total </b></td>
+                    <td>@Model.Where(p => p.OrderID == k).Sum(p => p.GrandTotal)</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+}
+@*@Html.PagedListPager(Model, Page => Url.Action("Orders", "Home", new { Page, search = Request.QueryString["SearchOrders"] }));*@
+
+
+

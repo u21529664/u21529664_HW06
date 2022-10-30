@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9dfb085d8a0f45739b1c5f6b983e443e" Name="Diagram1">
+        <EntityTypeShape EntityType="BikeStoresModel.brand" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.category" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.stock" Width="1.5" PointX="6.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.customer" Width="1.5" PointX="9.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.order_items" Width="1.5" PointX="12.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.order" Width="1.5" PointX="10.625" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.staff" Width="1.5" PointX="5.125" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoresModel.store" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="BikeStoresModel.FK__products__brand___2334397B" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__brand___35BCFE0A" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__brand___373B3228" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__brand___4B422AD5" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__brand___5F492382" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__brand___73501C2F" />
+        <AssociationConnector Association="BikeStoresModel.FK__products__catego__24285DB4" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__catego__36B12243" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__catego__382F5661" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__catego__4C364F0E" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__catego__603D47BB" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__products__catego__74444068" />
+        <AssociationConnector Association="BikeStoresModel.FK__order_ite__produ__27F8EE98" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__order_ite__produ__3A81B327" />
+        <AssociationConnector Association="BikeStoresModel.FK__stocks__product___251C81ED" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__product___37A5467C" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__product___39237A9A" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__product___4D2A7347" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__product___61316BF4" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__product___753864A1" />
+        <AssociationConnector Association="BikeStoresModel.FK__stocks__store_id__2610A626" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__store_id__38996AB5" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__store_id__3A179ED3" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__store_id__4E1E9780" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__store_id__6225902D" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__stocks__store_id__762C88DA" />
+        <AssociationConnector Association="BikeStoresModel.FK__orders__customer__28ED12D1" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__customer__3B75D760" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__customer__3CF40B7E" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__customer__50FB042B" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__customer__6501FCD8" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__customer__7908F585" />
+        <AssociationConnector Association="BikeStoresModel.FK__order_ite__order__6319B466" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoresModel.FK__orders__staff_id__04AFB25B" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__0C85DE4D" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__208CD6FA" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__29E1370A" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__3493CFA7" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__3C69FB99" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__3DE82FB7" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__489AC854" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__5070F446" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__51EF2864" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__5CA1C101" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__6477ECF3" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__65F62111" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__70A8B9AE" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__787EE5A0" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__staff_id__79FD19BE" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__2AD55B43" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__3D5E1FD2" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__3EDC53F0" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__52E34C9D" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__66EA454A" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__orders__store_id__7AF13DF7" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___0697FACD" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___0E6E26BF" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___22751F6C" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___2BC97F7C" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___367C1819" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___3E52440B" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___3FD07829" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___4A8310C6" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___52593CB8"></AssociationConnector>
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___53D770D6" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___5E8A0973" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___66603565" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___67DE6983" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___72910220" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___7A672E12" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__manager___7BE56230" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__078C1F06" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__2CBDA3B5" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__3F466844" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__40C49C62" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__54CB950F" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__68D28DBC" />
+        <AssociationConnector ManuallyRouted="false" Association="BikeStoresModel.FK__staffs__store_id__7CD98669" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

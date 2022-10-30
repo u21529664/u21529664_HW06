@@ -1,0 +1,125 @@
+﻿@model IPagedList<u21529664_HW06.Models.product>
+@using PagedList;
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <form>
+        <div class="form-group">
+            Find by Product Name: @Html.TextBox("SearchString")
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Search" style="width:150px" class="btn btn-primary form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create New" style="width:150px" class="btn btn-info form-control" data-toggle="modal" data-target="#myModal" />
+        </div>
+
+    </form>
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Brand Name
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.list_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand.brand_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.category_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.product_id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "", new { id = item.product_id }, new { @class = "btn btn-danger" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<div class="modal fade" id="Modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="ModalLabel">Add Product</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="ProductName">Product Name </label>
+                        <input type="text" class="form-control" id="ProductName" placeholder="Product Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Year">Model Year </label>
+                        <input type="text" class="form-control" id="Year" placeholder="Model Year" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">List Price </label>
+                        <input type="text" class="form-control" id="Price" placeholder="List Price" />
+                    </div>
+                    <div class="form-group">
+                        <label for="BrandName">Brand Name </label>
+                        <input type="text" class="form-control" id="BrandName" placeholder="Brand Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoryName">Category Name</label>
+                        <input type="text" class="form-control" id="CategoryName" placeholder="Category Name" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+@Html.PagedListPager(Model, Page => Url.Action("Index", "Products", new { Page, search = Request.QueryString["SearchString"] }));
+
+
+

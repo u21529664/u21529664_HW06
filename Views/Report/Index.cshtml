@@ -1,0 +1,138 @@
+﻿<h2>Mountain Bikes Report</h2>
+
+
+<div>
+    <canvas id="chart" width="1000" height="400"></canvas>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(document).ready(() => {
+            $.get({
+                url: "@Url.Action("GetReport", "Report")",
+                method: "GET",
+                success: (data, a) => {
+
+
+                    let reportData = JSON.parse(data);
+                    console.log(reportData[500]);
+
+                    let chartLabel = [];
+                    let chartData = [];
+                    //var totalMonth = 0;
+                    var january = 0, february = 0, march = 0, april = 0, may = 0, june = 0, july = 0, august = 0, september = 0, october = 0, november = 0, december = 0
+
+                    for (var k = 0; k < reportData.length; k++) {
+                        if (reportData[k].month == 1 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                january = january +  parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[0] = january;
+                        }
+
+                        if (reportData[k].month == 2 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                february = february + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[1] = february;
+                        }
+
+                        if (reportData[k].month == 3 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                march = march + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[2] = march;
+                        }
+                        if (reportData[k].month == 4 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                april = april + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[3] = april;
+                        }
+                        if (reportData[k].month == 5 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                may = may + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[4] = may;
+                        }
+                        if (reportData[k].month == 6 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                june = june + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[5] = june;
+                        }
+                        if (reportData[k].month == 7 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                july = july + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[6] = july;
+                        }
+                        if (reportData[k].month == 8 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                august = august + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[7] = august;
+                        }
+                        if (reportData[k].month == 9 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                september = september + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[8] = september;
+                        }
+
+                        if (reportData[k].month == 10 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                october = october + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[9] = october;
+                        }
+
+                        if (reportData[k].month == 11 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                november = november + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[10] = november;
+                        }
+
+                        if (reportData[k].month == 12 && reportData[k].bike.length != 0) {
+                            for (var y = 0; y < reportData[k].bike.length; y++) {
+                                december = december + parseInt(reportData[k].bike[y].quantity)
+                            }
+                            chartData[11] = december;
+                        }
+
+                    }
+
+                    $(reportData).each((k, a) => {
+                        chartLabel.push(a.Name);
+                        chartData.push(a.Amount);
+                    });
+
+                    chartLabel = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                    RenderChart(chartLabel, chartData);
+                }
+            });
+            function RenderChart(labels, reportData) {
+                let myDataChart = $("#chart");
+                let chart = new Chart(myDataChart, {
+                    type: 'bar',
+
+                    data: {
+                        labels: labels ,
+                        datasets: [{
+                            label: 'Number of Mountain Bikes Sold',
+                            data: reportData,
+                            backgroundColor: ["lightblue", "pink", ],
+                        }]
+
+                    }
+                });
+            }
+        });
+    </script>
+}
+
+
